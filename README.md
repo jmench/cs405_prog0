@@ -1,4 +1,4 @@
-# This is my repo for my CS405 Program 0 #
+# CS405 Program 0 #
 ## Author: Jordan Menchen ##
 ### Description: ###
 This program will search through two given .txt files and output the names and salaries of employees that match the city entered by the user on the command line.
