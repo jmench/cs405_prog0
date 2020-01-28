@@ -19,7 +19,8 @@ public class Main {
 
         // Attempt to open the file
         try {
-            address_in = new BufferedReader(new FileReader(currDir + "/personnel_addresses.txt"));
+            address_in = new BufferedReader(new FileReader(currDir +
+            "/personnel_addresses.txt"));
             String line;
             //Continue to read the file until there are no more entries
             while ((line = address_in.readLine()) != null) {
@@ -67,7 +68,8 @@ public class Main {
 
                 // Attempt to open the file
                 try {
-                    salary_in = new BufferedReader(new FileReader(currDir + "/personnel_salaries.txt"));
+                    salary_in = new BufferedReader(new FileReader(currDir +
+                    "/personnel_salaries.txt"));
                     String line;
                     //Continue to read the file until there are no more entries
                     while ((line = salary_in.readLine()) != null) {
