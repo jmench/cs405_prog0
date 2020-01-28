@@ -10,7 +10,7 @@ public class Main {
         ArrayList<String> nameArr = new ArrayList<>();
         BufferedReader address_in = null;
         try {
-            address_in = new BufferedReader(new FileReader(currDir + "/personnel_addresses2.txt"));
+            address_in = new BufferedReader(new FileReader(currDir + "Files/personnel_addresses2.txt"));
             String line;
             while ((line = address_in.readLine()) != null) {
                 String[] tokens = line.split("\\|", 2);
@@ -29,7 +29,7 @@ public class Main {
         for (String name: names) {
             BufferedReader salary_in = null;
             try {
-                salary_in = new BufferedReader(new FileReader(currDir + "/personnel_salaries2.txt"));
+                salary_in = new BufferedReader(new FileReader(currDir + "Files/personnel_salaries2.txt"));
                 String line;
                 while ((line = salary_in.readLine()) != null) {
                     String[] tokens = line.split("\\|", 2);
