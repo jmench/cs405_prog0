@@ -58,6 +58,9 @@ public class Main {
 
         // Else there are a list of names and you begin searching
         } else {
+            // Keep count in case no names match in the file
+            int count = 0;
+
             // Run the search for every name in the list
             for (String name: names) {
                 BufferedReader salary_in = null;
@@ -75,6 +78,7 @@ public class Main {
                         if (tokens[0].equals(name)) {
                             // If they match, print the name and Salary
                             System.out.println(tokens[0] + " : " + tokens[1]);
+                            count++;
                             // Exit out of the while loop
                             // No need to search the whole file for something
                             // that has been already found
@@ -90,6 +94,9 @@ public class Main {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+            if (count == 0) {
+                System.out.println("No matches found in the two files...");
             }
         }
     }
