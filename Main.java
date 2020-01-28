@@ -50,6 +50,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        // Pull the city name from the command line entry
         String city = args[0];
         findSalaries(findNames(city));
     }
