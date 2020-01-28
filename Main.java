@@ -104,9 +104,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // Pull the city name from the command line entry
-        String city = args[0];
-        // Run the methods to find the names, salaries that match the city
-        findSalaries(findNames(city));
+        // First make sure the user entered a city as an argument
+        if(args.length == 0) {
+            System.out.println("Please enter city as argument, like so:
+            java Main CITYNAME");
+            System.exit(0);
+        }
+        else {
+            // Pull the city name from the command line entry
+            String city = args[0];
+            // Run the methods to find the names, salaries that match the city
+            findSalaries(findNames(city));
+        }
     }
 }
