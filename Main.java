@@ -96,7 +96,7 @@ public class Main {
                 }
             }
             if (count == 0) {
-                System.out.println("No matches found in the two files...");
+                System.out.println("No matches found in the salary file...");
             }
         }
     }

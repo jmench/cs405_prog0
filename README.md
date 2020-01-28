@@ -4,13 +4,13 @@
 This program will search through two given .txt files and output the names and salaries of employees that match the city entered by the user on the command line.
 
 ### How to Run: ###
-To run this program, simply navigate to the directory of the program, and first compile it using the command `javac Main.java`. If you have the correct components install, this command should run smoothly and create a file in the same directory called *Main.class*.
+To run this program, simply navigate to the directory of the program, and first compile it using the command `javac Main.java`. If you have the correct components installed, this command should run smoothly and create a file in the same directory called *Main.class*.
 
 You can then run the program with the command `java Main CITYNAME` where `CITYNAME` is the city you'd like to search (ex. `java Main Louisville`).
 
 The program may take a while to run, so be patient. The output will either be 3 things:
 1. No names found for the city entered...
-2. No matches found in the two files...
+2. No matches found in the salary file...
 3. A list of names and salaries in the format **NAME : SALARY**
 
 ### IMPORTANT ###
