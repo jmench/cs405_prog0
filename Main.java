@@ -42,6 +42,7 @@ public class Main {
         }
 
         // Return the ArrayList of matching names
+        System.out.println("Done searching the first file!");
         return nameArr;
     }
 
@@ -106,8 +107,8 @@ public class Main {
     public static void main(String[] args) {
         // First make sure the user entered a city as an argument
         if(args.length == 0) {
-            System.out.println("Please enter city as argument, like so:
-            java Main CITYNAME");
+            System.out.println("Please enter city as argument, like so: " +
+            "java Main CITYNAME");
             System.exit(0);
         }
         else {
