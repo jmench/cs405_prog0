@@ -2,12 +2,13 @@ import java.util.*;
 import java.io.*;
 
 public class prog0 {
-
-    // Global that allows the program to get the path to the current directory
-    public static String currDir = System.getProperty("user.dir");
-    public static String address_file = (currDir + "/personnel_addresses.txt");
-    public static String salary_file = (currDir + "/personnel_salaries.txt");
-
+    /**************************************************************************
+    *                               openFile()
+    * Method that opens the file passed in and populates a new list with the
+    * entries.
+    *
+    * Returns a List with each element as a line from the file.
+    ***************************************************************************/
     static List<String> openFile(String filename) {
         List<String> tmp = new ArrayList<>();
         try (Scanner s = new Scanner(new FileReader(filename))) {
@@ -25,6 +26,7 @@ public class prog0 {
 
 
     /**************************************************************************
+    *                               findNames()
     * Method that searches through the given .txt file for entries that match
     * the city entered by the user.
     *
@@ -38,7 +40,9 @@ public class prog0 {
             // Check if the current line matches the city
             // (Contains allows substrings to match ex. ville -> Louisville)
             if (tokens[1].contains(city)) {
+                // Save the name
                 String name = tokens[0];
+                // Loop through every name and salary in the list
                 for (String sal: salary) {
                     //Split the line of the file using "|" as the separator
                     String[] tok = sal.split("\\|", 2);
@@ -47,12 +51,10 @@ public class prog0 {
                     if (tok[0].equals(name)) {
                         // If they match, print the name and Salary
                         System.out.println(tok[0] + ":" + tok[1]);
-                        //Remove item from list to make it faster
-                        //salary.remove(sal);
+                        // Remove all unnecessary entires to make searching
+                        // faster.
                         salary.subList(0, salary.indexOf(sal)).clear();
                         // Exit out of the for loop
-                        // No need to search the whole file for something
-                        // that has been already found
                         break;
                     }
                 }
@@ -60,27 +62,35 @@ public class prog0 {
         }
     }
 
+    /**************************************************************************
+    *                               MAIN                                      *
+    **************************************************************************/
     public static void main(String[] args) {
         // First make sure the user entered a city as an argument
         if(args.length == 0) {
             System.out.println("Please enter city as argument, like so: " +
             "java Main CITYNAME");
             System.exit(0);
-        }
-        // Else start to perform the program functions
-        else {
-            List<String> address = new ArrayList<>();
-            List<String> salary = new ArrayList<>();
-            address = openFile(address_file);
-            salary = openFile(salary_file);
+        } else {
+            // Helps get the path to the current directory
+            String currDir = System.getProperty("user.dir");
+            // String vals for the path to the txt files
+            String address_file = (currDir + "/personnel_addresses.txt");
+            String salary_file = (currDir + "/personnel_salaries.txt");
 
-            java.util.Collections.sort(address);
-            java.util.Collections.sort(salary);
+            // Create lists for the addresses and salaries
+            // use the openFile function to populate the lists
+            List<String> address = openFile(address_file);
+            List<String> salary = openFile(salary_file);
 
-            // Pull the city name from the command line entry
+            // Sort the lists by alphabetical order for faster searching.
+            Collections.sort(address);
+            Collections.sort(salary);
+
+            // Grab the city name from the command line entry
             String city = args[0];
 
-            // Run the methods to find the names, salaries that match the city
+            // Run the method to find the names/salaries that match the city
             findNames(city, address, salary);
         }
     }
