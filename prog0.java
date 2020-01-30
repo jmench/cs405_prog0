@@ -31,8 +31,6 @@ public class prog0 {
     * Returns a List of user names from the city.
     ***************************************************************************/
     static void findNames(String city, List<String> address, List<String> salary) {
-        int count = 0;
-
         // Loop through every name and city in the list
         for(String addr: address) {
             // Split the line of the file using "|" as the separator
@@ -47,7 +45,6 @@ public class prog0 {
                     // Check if the names match
                     // .equals() makes sure the names are exactly the same
                     if (tok[0].equals(name)) {
-                        count++;
                         // If they match, print the name and Salary
                         System.out.println(tok[0] + ":" + tok[1]);
                         //Remove item from list to make it faster
@@ -61,7 +58,6 @@ public class prog0 {
                 }
             }
         }
-        System.out.println(count);
     }
 
     public static void main(String[] args) {
